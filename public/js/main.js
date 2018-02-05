@@ -2,19 +2,39 @@ function rawOpenPage(page, callback) {
 	$("title").text(page);
 	window.location.hash = page;
 
-    $("#container").load(page + '.html', function(res, stat, req) {
-		applyImgModalEvent();
-		if (callback) callback(res, stat, req);
+	// Load into the loading container
+	$('#loading-container').empty().hide().load(page + '.html', function(res, stat, req) {
+		if (callback)
+			callback(res, stat, req);
 	});
 }
 
 function openPage(page) {
-    rawOpenPage(page, function (responseText, textStatus, req) {
-        console.log(textStatus);
-        if (textStatus == "error") {
-            rawOpenPage("startsida");
-        }
-    });
+	// Start fading
+	$('#loading-blocker').stop().fadeIn('fast');
+	$('#loaded-container').stop().fadeOut('fast', function() {
+		// Start loading
+		rawOpenPage(page, function (responseText, textStatus, req) {
+			if (textStatus == "error") {
+				rawOpenPage("startsida", pageLoaded);
+			} else {
+				pageLoaded();
+			}
+		});
+	});
+
+	var pageLoaded = function() {
+		// Fade out blocker & empty
+		$('#loading-blocker').stop().fadeOut();
+		$('#loaded-container').empty().stop().hide();
+
+		// Move between divs
+		$('#loading-container').children().appendTo('#loaded-container');
+		applyImgModalEvent();
+
+		// Fade in
+		$('#loaded-container').fadeIn('slow');
+	}
 }
 
 var modal;
@@ -45,7 +65,7 @@ $(function () {
 /* MODAL IMAGE */
 
 function applyImgModalEvent() {
-	$('.modal-img-link').on('click', function(){
+	$('#loaded-container .modal-img-link').on('click', function(){
 		modal.css('display', 'block');
 		modalImg.attr('src', this.src);
 		captionText.text(this.alt);
