@@ -13,98 +13,125 @@
     firebase.initializeApp(config);
 </script>
 
+<div class="row">
+    <div class="col-sm-4 card">
+        <div class="card-body">
+        <h2 class="card-title">Hyresvärd</h2>
+        <form>
+            <div class="row">
+                <label class="col-form-label col-sm-4">Namn:</label>
+                <input class="form-control-plaintext col-sm-8" readonly="" value="Sundre Sockenförening">
+            </div>
+            <div class="row">
+                <label class="col-form-label col-sm-4">Org.nr:</label>
+                <input class="form-control-plaintext col-sm-8" readonly="" value="123456">
+            </div>
+            <div class="row">
+                <label class="col-form-label col-sm-4">c/o:</label>
+                <input class="form-control-plaintext col-sm-8" readonly="" value="Kurt Andersson">
+            </div>
+            <div class="row">
+                <label class="col-form-label col-sm-4">Adress:</label>
+                <input class="form-control-plaintext col-sm-8" readonly="" value="Sundre, Juves 167">
+            </div>
+            <div class="row">
+                <label class="col-form-label col-sm-4">Postnr:</label>
+                <input class="form-control-plaintext col-sm-8" readonly="" value="623 30">
+            </div>
+            <div class="row">
+                <label class="col-form-label col-sm-4">Ort:</label>
+                <input class="form-control-plaintext col-sm-8" readonly="" value="Burgsvik">
+            </div>
+            <div class="row">
+                <label class="col-form-label col-sm-4">Telefon:</label>
+                <input class="form-control-plaintext col-sm-8" readonly="" value="070-7956777">
+            </div>
+            <div class="row">
+                <label class="col-form-label col-sm-4">Mail:</label>
+                <input class="form-control-plaintext col-sm-8" readonly="" value="sundreskola@gmail.com">
+            </div>
+            <div class="row">
+                <label class="col-form-label col-sm-4">Plusgiro:</label>
+                <input class="form-control-plaintext col-sm-8" readonly="" value="634 66 27-01">
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-8">
+
+        </form>
+        <h2>Bokning-Hyresgäst</h2>
+        <form name="boka" id="boka" onsubmit="return send()">
+            <div class="form-group row">
+                <label class="col-form-label col-sm-3">Vecka/or</label>
+                <input class="form-control col-sm-9" placeholder="Exempel: 29,30" required="">
+            </div>
+            <div class="form-group row">
+                <label class="col-form-label col-sm-3">Att betala</label>
+                <input class="form-control col-sm-9" placeholder="Exempel: 9 000:-" required="">
+            </div>
+            <div class="form-group row">
+                <label class="col-form-label col-sm-3">Förnamn</label>
+                <input class="form-control col-sm-9" required="">
+            </div>
+            <div class="form-group row">
+                <label class="col-form-label col-sm-3">Efternamn</label>
+                <input class="form-control col-sm-9" required="">
+            </div>
+            <div class="form-group row">
+                <label class="col-form-label col-sm-3">Personnummer</label>
+                <input class="form-control col-sm-9" required="">
+            </div>
+            <div class="form-group row">
+                <label class="col-form-label col-sm-3">Adress</label>
+                <input class="form-control col-sm-9" required="">
+            </div>
+            <div class="form-group row">
+                <label class="col-form-label col-sm-3">Postnummer</label>
+                <input class="form-control col-sm-9" required="">
+            </div>
+            <div class="form-group row">
+                <label class="col-form-label col-sm-3">Ort</label>
+                <input class="form-control col-sm-9" required="">
+            </div>
+            <div class="form-group row">
+                <label class="col-form-label col-sm-3">Telefon</label>
+                <input class="form-control col-sm-9" required="">
+            </div>
+            <div class="form-group row">
+                <label class="col-form-label col-sm-3">Mail</label>
+                <input class="form-control col-sm-9" required="">
+            </div>
+            <div class="form-group row">
+                <label class="col-form-label col-sm-3">Bokningsdatum</label>
+                <input class="form-control col-sm-9" id="datum" readonly="">
+            </div>
+
+            <div class="text-right">
+                <button id="submit" type="submit">Sänd</button>
+                <span>Alla fält måste fyllas i</span>
+            </div>
+        </form>
+    </div>
+</div>
+
+<br>
+<hr>
+<br>
+
 <section class="text-center">
-    <p>Tack för din bokning!
-        <br>Vi återkommer inom ngn dag med bekräftelse.
-        <br>Hälsningar Kurt</p>
+    <a href="http://www.sundresockenforening.se/">Till föreningssidan</a>
+    <img class="img-fluid" src="./boka_files/hardufrågor.jpg" width="250">
+    <img class="img-fluid" src="./boka_files/maila.jpg" width="300">
 </section>
 
-<div class="row">       
-<div class="col-sm-4">
-<h4>Hyresvärd</h4>
-<form>
-    <div class="form-group row">
-        <label class="col-form-label col-sm-3">Namn:</label>
-        <input class="form-control-plaintext col-sm-9" readonly="" value="Sundre Sockenförening">
-    </div>
-    <div class="form-group row">
-        <label class="col-form-label col-sm-3">Org.nr:</label>
-        <input class="form-control-plaintext col-sm-9" readonly="" value="123456">
-    </div>
-    <div class="form-group row">
-        <label class="col-form-label col-sm-3">c/o:</label>
-        <input class="form-control-plaintext col-sm-9" readonly="" value="Kurt Andersson">
-    </div>
-    <div class="form-group row">
-        <label class="col-form-label col-sm-3">Adress:</label>
-        <input class="form-control-plaintext col-sm-9" readonly="" value="Sundre, Juves 167">
-    </div>
-    <div class="form-group row">
-        <label class="col-form-label col-sm-3">Postnr:</label>
-        <input class="form-control-plaintext col-sm-9" readonly="" value="623 30">
-    </div>
-    <div class="form-group row">
-        <label class="col-form-label col-sm-3">Ort:</label>
-        <input class="form-control-plaintext col-sm-9" readonly="" value="Burgsvik">
-    </div>
-    <div class="form-group row">
-        <label class="col-form-label col-sm-3">Telefon:</label>
-        <input class="form-control-plaintext col-sm-9" readonly="" value="070-7956777">
-    </div>
-    <div class="form-group row">
-        <label class="col-form-label col-sm-3">Mail:</label>
-        <input class="form-control-plaintext col-sm-9" readonly="" value="sundreskola@gmail.com">
-    </div>
-    <div class="form-group row">
-        <label class="col-form-label col-sm-3">Plusgiro:</label>
-        <input class="form-control-plaintext col-sm-9" readonly="" value="634 66 27-01">
-    </div>
-</div>
+<br>
 
-<div class="col-sm-8">
-        
-</form>
-<a href="http://www.sundresockenforening.se/">Till föreningssidan</a>
-<p> </p>
-<img class="img-fluid" src="./boka_files/hardufrågor.jpg" width="250">
-
-<h1>Bokning-Hyresgäst</h1>
-<form name="boka" id="boka" onsubmit="return send()">
-    <label>Vecka/or</label>
-    <input placeholder="Exempel: 29,30" required="">
-    <label>Att betala</label>
-    <input placeholder="Exempel: 9 000:-" required="">
-    <label>Förnamn</label>
-    <input required="">
-    <label>Efternamn</label>
-    <input required="">
-    <label>Personnummer</label>
-    <input required="">
-    <label>Adress</label>
-    <input required="">
-    <label>Postnummer</label>
-    <input required="">
-    <label>Ort</label>
-    <input required="">
-    <label>Telefon</label>
-    <input>
-    <label>Mail</label>
-    <input required="">
-    <label>Bokningsdatum</label>
-    <input id="datum" readonly="">
-    <label> </label>
-    <button id="submit" type="submit">Sänd</button>
-    <span>Alla fält måste fyllas i</span>
-    <hr>
-    <section>
-        När du skickat din bokning kommer du att få ett mail som bekräfar din bokning där du också kommer att få all info du behöver
-        för att betala bokningen, hur du tillträder(nyckel etc). Bekräftelsemailet kan ta ngn eller några dagar men ditt
-        bokningsdatum avgör turordningen
-    </section>
-</form>
-<img class="img-fluid" src="./boka_files/maila.jpg" width="300">
-</div>
-</div>
+<section class="text-center">
+    När du skickat din bokning kommer du att få ett mail som bekräftar din bokning där du också kommer att få all info du behöver
+    för att betala bokningen, hur du tillträder(nyckel etc). Bekräftelsemailet kan ta ngn eller några dagar men ditt bokningsdatum
+    avgör turordningen
+</section>
 
 <script>
     var v = document.getElementById("datum").value = new Date().toLocaleDateString()
