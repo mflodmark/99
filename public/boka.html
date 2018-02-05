@@ -1,88 +1,133 @@
+<script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
 
-    
-    
-<script src="./boka_files/firebase.js.ladda ned"></script>
 <script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyBSgKZ8uou-1pT7jy9KtM-mQSRUoNFt-fo",
-    authDomain: "sundreskola-adf57.firebaseapp.com",
-    databaseURL: "https://sundreskola-adf57.firebaseio.com",
-    projectId: "sundreskola-adf57",
-    storageBucket: "",
-    messagingSenderId: "678469611480"
-  };
-  firebase.initializeApp(config);
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyB09PIvmKXDODbwm4uThwDp9sYiezNLFcI",
+        authDomain: "sundre-37509.firebaseapp.com",
+        databaseURL: "https://sundre-37509.firebaseio.com",
+        projectId: "sundre-37509",
+        storageBucket: "sundre-37509.appspot.com",
+        messagingSenderId: "781649557120"
+    };
+    firebase.initializeApp(config);
 </script>
 
+<section class="text-center">
+    <p>Tack för din bokning!
+        <br>Vi återkommer inom ngn dag med bekräftelse.
+        <br>Hälsningar Kurt</p>
+</section>
 
+<div class="row">       
+<div class="col-sm-4">
+<h4>Hyresvärd</h4>
+<form>
+    <div class="form-group row">
+        <label class="col-form-label col-sm-3">Namn:</label>
+        <input class="form-control-plaintext col-sm-9" readonly="" value="Sundre Sockenförening">
+    </div>
+    <div class="form-group row">
+        <label class="col-form-label col-sm-3">Org.nr:</label>
+        <input class="form-control-plaintext col-sm-9" readonly="" value="123456">
+    </div>
+    <div class="form-group row">
+        <label class="col-form-label col-sm-3">c/o:</label>
+        <input class="form-control-plaintext col-sm-9" readonly="" value="Kurt Andersson">
+    </div>
+    <div class="form-group row">
+        <label class="col-form-label col-sm-3">Adress:</label>
+        <input class="form-control-plaintext col-sm-9" readonly="" value="Sundre, Juves 167">
+    </div>
+    <div class="form-group row">
+        <label class="col-form-label col-sm-3">Postnr:</label>
+        <input class="form-control-plaintext col-sm-9" readonly="" value="623 30">
+    </div>
+    <div class="form-group row">
+        <label class="col-form-label col-sm-3">Ort:</label>
+        <input class="form-control-plaintext col-sm-9" readonly="" value="Burgsvik">
+    </div>
+    <div class="form-group row">
+        <label class="col-form-label col-sm-3">Telefon:</label>
+        <input class="form-control-plaintext col-sm-9" readonly="" value="070-7956777">
+    </div>
+    <div class="form-group row">
+        <label class="col-form-label col-sm-3">Mail:</label>
+        <input class="form-control-plaintext col-sm-9" readonly="" value="sundreskola@gmail.com">
+    </div>
+    <div class="form-group row">
+        <label class="col-form-label col-sm-3">Plusgiro:</label>
+        <input class="form-control-plaintext col-sm-9" readonly="" value="634 66 27-01">
+    </div>
+</div>
 
-    <section id="s1"><p>Tack för din bokning!<br>Vi återkommer inom ngn dag med bekräftelse. <br>Hälsningar Kurt</p></section>
-    
-            
-            <h4>Hyresvärd</h4>
-                    <form>
-                        <label class="hv">Namn</label><input class="hv" readonly="" value="Sundre Sockenförening"><br>
-                        <label class="hv">Org.nummer</label><input class="hv" readonly="" value="123456"><br>
-                        <label class="hv">c/o</label><input class="hv" readonly="" value="Kurt Andersson"><br>
-                        <label class="hv">Adress</label><input class="hv" readonly="" value="Sundre, Juves 167"><br>
-                        <label class="hv">Postnummer</label><input class="hv" readonly="" value="623 30"><br>
-                        <label class="hv">Ort</label><input class="hv" readonly="" value="Burgsvik"><br>
-                        <label class="hv">Telefon</label><input class="hv" readonly="" value="070-7956777"><br>
-                        <label class="hv">Mail</label><input class="hv" readonly="" value="sundreskola@gmail.com"><br>
-                        <label class="hv">Plusgiro</label><input class="hv" readonly="" value="634 66 27-01"><br>
-               
-                    </form>
-                <a  href="http://www.sundresockenforening.se/">Till föreningssidan</a>  
-                <p> </p>
-                <img  src="./boka_files/hardufrågor.jpg" width="250">
-           
-    <h1>Bokning-Hyresgäst</h1>
-        <form name="boka" id="boka" onsubmit="return send()">
-            <label>Vecka/or</label><input placeholder="Exempel: 29,30" required=""><br>
-            <label>Att betala</label><input placeholder="Exempel: 9 000:-" required=""><br>
-            <label>Förnamn</label><input required=""><br>
-            <label>Efternamn</label><input required=""><br>
-            <label>Personnummer</label><input required=""><br>
-            <label>Adress</label><input required=""><br>
-            <label>Postnummer</label><input required=""><br>
-            <label>Ort</label><input required=""><br>
-            <label>Telefon</label><input><br>
-            <label>Mail</label><input required=""><br>
-            <label>Bokningsdatum</label><input id="datum" readonly=""><br>
-            <label> </label><button id="submit" type="submit">Sänd</button><span >Alla fält måste fyllas i</span>
-            <hr>
-            <section >
-                    När du skickat din bokning kommer du att få ett mail som bekräfar din bokning där du också kommer att få all info du behöver för att betala bokningen, hur du tillträder(nyckel etc). Bekräftelsemailet kan ta ngn eller några dagar men ditt bokningsdatum avgör turordningen
-            </section>
-        </form>
-        <img  src="./boka_files/maila.jpg" width="300">
+<div class="col-sm-8">
+        
+</form>
+<a href="http://www.sundresockenforening.se/">Till föreningssidan</a>
+<p> </p>
+<img class="img-fluid" src="./boka_files/hardufrågor.jpg" width="250">
 
-
+<h1>Bokning-Hyresgäst</h1>
+<form name="boka" id="boka" onsubmit="return send()">
+    <label>Vecka/or</label>
+    <input placeholder="Exempel: 29,30" required="">
+    <label>Att betala</label>
+    <input placeholder="Exempel: 9 000:-" required="">
+    <label>Förnamn</label>
+    <input required="">
+    <label>Efternamn</label>
+    <input required="">
+    <label>Personnummer</label>
+    <input required="">
+    <label>Adress</label>
+    <input required="">
+    <label>Postnummer</label>
+    <input required="">
+    <label>Ort</label>
+    <input required="">
+    <label>Telefon</label>
+    <input>
+    <label>Mail</label>
+    <input required="">
+    <label>Bokningsdatum</label>
+    <input id="datum" readonly="">
+    <label> </label>
+    <button id="submit" type="submit">Sänd</button>
+    <span>Alla fält måste fyllas i</span>
+    <hr>
+    <section>
+        När du skickat din bokning kommer du att få ett mail som bekräfar din bokning där du också kommer att få all info du behöver
+        för att betala bokningen, hur du tillträder(nyckel etc). Bekräftelsemailet kan ta ngn eller några dagar men ditt
+        bokningsdatum avgör turordningen
+    </section>
+</form>
+<img class="img-fluid" src="./boka_files/maila.jpg" width="300">
+</div>
+</div>
 
 <script>
-    var v=document.getElementById("datum").value=new Date().toLocaleDateString()
-   // var btn=document.querySelector("button[type=submit]")
-   function send()
-   {
-   var props=["vecka","belopp","förnamn","efternamn","pnr","adress","postnr","ort","telefon","mail","datum"]
-   var inputs=Array.from( document.forms["boka"].getElementsByTagName("input"));
-   var obj={}
-    inputs=inputs.map((x,i)=>{
-       
-        obj[props[i]]=x.value
-       
-    } )
-   console.log(obj)
-   var v = firebase.database();
-  // firebase.database().ref('users').push(obj)
-   v.ref('users').push(obj)
-   document.getElementById("submit").style.visibility='hidden'
-  alert("Tack för din bokning.\n Vi återkommer inom ngn dag med bekräftelse\Hälsningar Kurt")
-//   document.getElementById("s1").style.display="block;"
-//   window.setTimeout(function(){
-//     return true
-//   }, 5000);
-   return false
-   }
+    var v = document.getElementById("datum").value = new Date().toLocaleDateString()
+    // var btn=document.querySelector("button[type=submit]")
+    function send() {
+        var props = ["vecka", "belopp", "förnamn", "efternamn", "pnr", "adress", "postnr", "ort", "telefon", "mail", "datum"]
+        var inputs = Array.from(document.forms["boka"].getElementsByTagName("input"));
+        var obj = {}
+        inputs = inputs.map((x, i) => {
+
+            obj[props[i]] = x.value
+
+        })
+        console.log(obj)
+        var v = firebase.database();
+        // firebase.database().ref('users').push(obj)
+        v.ref('users').push(obj)
+        document.getElementById("submit").style.visibility = 'hidden'
+        alert("Tack för din bokning.\n Vi återkommer inom ngn dag med bekräftelse\Hälsningar Kurt")
+        //   document.getElementById("s1").style.display="block;"
+        //   window.setTimeout(function(){
+        //     return true
+        //   }, 5000);
+        return false
+    }
 </script>
