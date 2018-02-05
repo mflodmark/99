@@ -1,33 +1,64 @@
-<div>
-    <h1>Aktuellt bokningsläge Sundre gamla skola 2018</h1>
-    <h4>&nbsp;&nbsp;&nbsp;2018-02-02</h4>
+<div class="row">
+    <div class="col-sm-6">
+        <h3>Priser och tider</h3>
+        <table class="table table-hover table-striped">
+            <thead>
+                <tr>
+                    <th>Högsäsong(v25-32)</th>
+                    <th>Övr. tider</th>
+                    <th>Avresa</th>
+                    <th>Ankomst</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>4 500:-</td>
+                    <td>3 500:-</td>
+                    <td>Lördag kl.12</td>
+                    <td>Lördag kl.12</td>
+                </tr>
+            </tbody>
+        </table>
+        <a href="javascript:openPage('boka')">Boka här</a>
+        &nbsp;
+        <b>eller ring 070-7956777</b>
+    </div>
 </div>
 
-
-
-
-<img class="img-fluid" src="/images/bokning2.jpg">
 <br>
 <hr>
+<br>
 <div>
-    <h3>Priser och tider</h3>
-    <table>
-        <tbody>
-            <tr>
-                <td>Högsäsong(v25-32)</td>
-                <td>Övr. tider</td>
-                <td>Avresa</td>
-                <td>Ankomst</td>
-            </tr>
-            <tr>
-                <th>4 500:-</th>
-                <th>3 500:-</th>
-                <th>Lördag kl.12</th>
-                <th>Lördag kl.12</th>
-            </tr>
-        </tbody>
-    </table>
-    <a href="javascript:openPage('boka')">Boka här</a>
-    &nbsp;
-    <b>eller ring 070-7956777</b>
+    <h1>Aktuellt bokningsläge Sundre gamla skola 2018</h1>
 </div>
+
+<div class="row">
+    <div id="div1" class="col-sm-6">
+        <table class="table table-hover table-striped">
+            <thead>
+                <tr>
+                    <th>Bokade veckor</th>
+                </tr>
+            </thead>
+            <tbody id="t1">
+
+            </tbody>
+        </table>
+    </div>
+
+    <div class="col-sm-6">
+        <table class="table table-hover table-striped">
+            <thead>
+                <tr>
+                    <th>Lediga veckor</th>
+                </tr>
+            </thead>
+            <tbody id="t2">
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script type="text/javascript" src="/js/db.js"></script>
+<script type="text/javascript" src="/js/getDates.js"></script>
