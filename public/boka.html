@@ -1,18 +1,3 @@
-<script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
-
-<script>
-    // Initialize Firebase
-    var config = {
-        apiKey: "AIzaSyB09PIvmKXDODbwm4uThwDp9sYiezNLFcI",
-        authDomain: "sundre-37509.firebaseapp.com",
-        databaseURL: "https://sundre-37509.firebaseio.com",
-        projectId: "sundre-37509",
-        storageBucket: "sundre-37509.appspot.com",
-        messagingSenderId: "781649557120"
-    };
-    firebase.initializeApp(config);
-</script>
-
 <div class="row">
     <div class="col-sm-4 card">
         <div class="card-body">
@@ -104,7 +89,7 @@
             </div>
             <div class="form-group row">
                 <label class="col-form-label col-sm-3">Bokningsdatum</label>
-                <input class="form-control col-sm-9" id="datum" readonly="">
+                <input class="form-control-plaintext col-sm-9" id="datum" readonly="">
             </div>
 
             <div class="text-right">
@@ -133,28 +118,4 @@
     avgör turordningen
 </section>
 
-<script>
-    var v = document.getElementById("datum").value = new Date().toLocaleDateString()
-    // var btn=document.querySelector("button[type=submit]")
-    function send() {
-        var props = ["vecka", "belopp", "förnamn", "efternamn", "pnr", "adress", "postnr", "ort", "telefon", "mail", "datum"]
-        var inputs = Array.from(document.forms["boka"].getElementsByTagName("input"));
-        var obj = {}
-        inputs = inputs.map((x, i) => {
-
-            obj[props[i]] = x.value
-
-        })
-        console.log(obj)
-        var v = firebase.database();
-        // firebase.database().ref('users').push(obj)
-        v.ref('users').push(obj)
-        document.getElementById("submit").style.visibility = 'hidden'
-        alert("Tack för din bokning.\n Vi återkommer inom ngn dag med bekräftelse\Hälsningar Kurt")
-        //   document.getElementById("s1").style.display="block;"
-        //   window.setTimeout(function(){
-        //     return true
-        //   }, 5000);
-        return false
-    }
-</script>
+<script type="text/javascript" src="js/boka.js"></script>
