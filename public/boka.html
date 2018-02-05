@@ -41,57 +41,64 @@
             </div>
         </div>
     </div>
-
-    <div class="col-sm-8">
-
+    <div class="col-sm-1"></div>
+    <div class="col-sm-7 text-left">
         </form>
         <h2>Bokning-Hyresgäst</h2>
         <form name="boka" id="boka" onsubmit="return send()">
             <div class="form-group row">
                 <label class="col-form-label col-sm-3">Vecka/or</label>
-                <input class="form-control col-sm-9" placeholder="Exempel: 29,30" required="">
+                <select id="dates" class="form-control col-sm-3" required="">
+                    <option diabled selected value="">Välj vecka</option>
+                </select>
+                <select class="form-control col-sm-3" required="">
+                    <option disabled selected value="">Välj antal veckor</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>                    
+                </select>                        
             </div>
             <div class="form-group row">
                 <label class="col-form-label col-sm-3">Att betala</label>
-                <input class="form-control-plaintext col-sm-9" value="0 :-" readonly="">
+                <input id="price" class="form-control-plaintext col-sm-6" value="0 :-" readonly="">
             </div>
             <div class="form-group row">
                 <label class="col-form-label col-sm-3">Förnamn</label>
-                <input class="form-control col-sm-9" required="">
+                <input class="form-control col-sm-6" required="">
             </div>
             <div class="form-group row">
                 <label class="col-form-label col-sm-3">Efternamn</label>
-                <input class="form-control col-sm-9" required="">
+                <input class="form-control col-sm-6" required="">
             </div>
             <div class="form-group row">
                 <label class="col-form-label col-sm-3">Personnummer</label>
-                <input class="form-control col-sm-9" required="">
+                <input class="form-control col-sm-6" required="">
             </div>
             <div class="form-group row">
                 <label class="col-form-label col-sm-3">Adress</label>
-                <input class="form-control col-sm-9" required="">
+                <input class="form-control col-sm-6" required="">
             </div>
             <div class="form-group row">
                 <label class="col-form-label col-sm-3">Postnummer</label>
-                <input class="form-control col-sm-9" required="">
+                <input class="form-control col-sm-6" required="">
             </div>
             <div class="form-group row">
                 <label class="col-form-label col-sm-3">Ort</label>
-                <input class="form-control col-sm-9" required="">
+                <input class="form-control col-sm-6" required="">
             </div>
             <div class="form-group row">
                 <label class="col-form-label col-sm-3">Telefon</label>
-                <input class="form-control col-sm-9" required="">
+                <input class="form-control col-sm-6" required="">
             </div>
             <div class="form-group row">
                 <label class="col-form-label col-sm-3">Mail</label>
-                <input class="form-control col-sm-9" required="">
+                <input class="form-control col-sm-6" required="">
             </div>
             <div class="form-group row">
                 <label class="col-form-label col-sm-3">Bokningsdatum</label>
-                <input class="form-control-plaintext col-sm-9" id="datum" readonly="">
+                <input class="form-control-plaintext col-sm-6" id="datum" readonly="">
             </div>
-
             <div class="text-right">
                 <button id="submit" type="submit">Sänd</button>
                 <span>Alla fält måste fyllas i</span>
