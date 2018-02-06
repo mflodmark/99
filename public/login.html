@@ -1,30 +1,47 @@
-
-
-
 <link href="css/login.css" rel="stylesheet">
 
-<div id="">
-  
-  <form class="modal-content" action="/action_page.php">
-    <div class="imgcontainer">
-      <img src="images/img_avatar2.png"  class="avatar">
-    </div>
+<div id="login-div" class="modal-content">
+  <div class="imgcontainer">
+    <img src="images/img_avatar2.png" class="avatar">
+  </div>
 
-    <div class="container">
-      <label><b>Username</b></label>
-      <input type="text" placeholder="Enter Username" name="uname" required>
+  <div class="container">
+    <label>
+      <b>Username</b>
+    </label>
+    <input id="email" type="text" placeholder="Enter Username" name="uname" required>
 
-      <label><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" required>
-        
-      <button type="submit">Login</button>
-      
-    </div>
+    <label>
+      <b>Password</b>
+    </label>
+    <input id="password" type="password" placeholder="Enter Password" name="psw" required>
+    <button id="btn">Login</button>
 
-    
-  </form>
+  </div>
 </div>
 
+<div id="logout-div">
+  <table class="table table-hover table-striped">
+    <thead>
+      <tr>
+        <th>Vecka</th>
+        <th>Belopp</th>
+        <th>Förnamn</th>
+        <th>Efternamn</th>
+        <th>Personnr</th>
+        <th>Adress</th>
+        <th>Postnr</th>
+        <th>Ort</th>
+        <th>Telefon</th>
+        <th>Mail</th>
+        <th>Datum</th>
+      </tr>
+    </thead>
+    <tbody id="admin-data"></tbody>
+  </table>
+  <button id="logout-btn">Log out</button>
+</div>
 
-
-
+<script type="text/javascript" src="/js/db.js"></script>
+<script type="text/javascript" src="/js/login.js"></script>
+<script type="text/javascript" src="/js/getDbData.js"></script>

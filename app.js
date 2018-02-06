@@ -6,11 +6,14 @@ const port = 8080
 
 app.use(express.static("public"))
 
-// GET Route 
-app.get("/admin41", function(req, res) {
-    console.log(req.query.user + req.query.pwd)
-    res.send(req.query.admin)
-});
+// var bodyParser = require("body-parser")
+// app.use(bodyParser.urlencoded({ extended: false}))
+
+// app.post("/login", function(req, res) {
+//     console.log(req.body)
+//     // res.send(req.body)
+    
+// });
 
 db.init(app);
 
