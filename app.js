@@ -7,8 +7,9 @@ const port = 8080
 app.use(express.static("public"))
 
 // GET Route 
-app.get("/t", function(req, res) {
-    res.send("Testing")
+app.get("/admin41", function(req, res) {
+    console.log(req.query.user + req.query.pwd)
+    res.send(req.query.admin)
 });
 
 db.init(app);
