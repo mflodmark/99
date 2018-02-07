@@ -71,3 +71,5 @@ function applyImgModalEvent() {
 		captionText.text(this.alt);
 	});
 }
+
+

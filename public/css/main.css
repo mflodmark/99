@@ -73,3 +73,13 @@ html {
   .testclass{
       background-color: rgb(248, 174, 174);
   }
+
+  .booking-link { outline: none; color: white;}
+  
+      .booking-link:focus {
+          outline: none;
+          text-decoration: none;
+      }
+      .booking-link:hover {
+          text-decoration: none;
+      }
