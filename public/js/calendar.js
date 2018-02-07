@@ -1,7 +1,6 @@
 
 $("#maj").click(function () {
     $("#calendar-div").load("calendar/maj.html")
-
 })
 
 $("#juni").click(function () {
@@ -16,10 +15,12 @@ $("#augusti").click(function () {
     $("#calendar-div").load("calendar/augusti.html")
 })
 
-getBookedWeeks()
+$(document).ready(function(){
+    getBookedWeeks()
+})
 
 function getBookedWeeks() {
-    var props = ["vecka"]
+        var props = ["vecka"]
     var kunder = []
     var users = firebase.database().ref("users");
     
@@ -42,7 +43,14 @@ function getBookedWeeks() {
             var tag = "v" + p
             console.log("test"+tag+"test")
             var name = document.getElementsByName(tag)
-            name.style = "background-color:red"    
+            var a = Array.from(name) 
+            console.log(a.length)  
+            
+            a.map(x => {
+                x.style.backgroundColor = "red"
+                console.log(x)  
+            })  
         })
     });
+    
 }
