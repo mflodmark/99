@@ -78,7 +78,6 @@ function AddUsedDates(weeks) {
     console.log(weeks.length + "weeks from kunder")
     console.log(arr.length + "arr")
 
-    // var splitUsedDates = [];
     var w = []
 
     // weeks can have multiple values
@@ -90,10 +89,6 @@ function AddUsedDates(weeks) {
     })
 
     console.log(w.length + "split")
-    // w.splice(w.length - 1, 1);
-    // w.map(p => {
-    //     splitUsedDates.push(p)
-    // })
 
     var dates = document.getElementById("dates")
     dates.innerHTML = "<option disabled selected value=''>Välj vecka</option>"

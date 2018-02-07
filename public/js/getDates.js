@@ -23,8 +23,6 @@ function getBookedDates() {
             document.getElementById("t1").innerHTML += rad
         })
     });
-
-
 }
 
 
