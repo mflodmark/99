@@ -1,8 +1,8 @@
 <div class="row">
     <div class="col-sm-6">
         <h3>Priser och tider</h3>
-        <table class="table table-striped">
-            <thead>
+        <table class="table">
+            <thead class="thead-light">
                 <tr>
                     <th>Högsäsong(v25-32)</th>
                     <th>Övr. tider</th>
@@ -15,7 +15,9 @@
                 </tr>
             </tbody>
         </table>
-        <a href="javascript:openPage('boka')" ><button class="btn btn-primary">Boka här</button></a>
+        <a href="javascript:openPage('boka')">
+            <button class="btn btn-primary">Boka här</button>
+        </a>
         &nbsp;
         <b>eller ring 070-7956777</b>
     </div>
@@ -36,13 +38,14 @@
 <button class="btn btn-base month-button" id="juni">Juni</button>
 <button class="btn btn-base month-button" id="juli">Juli</button>
 <button class="btn btn-base month-button" id="augusti">Augusti</button>
+
 <div id="calendar-div">
 
 
 </div>
 
 
-
+<link href="css/calendar.css" rel="stylesheet">
 <script type="text/javascript" src="/js/db.js"></script>
 <script type="text/javascript" src="/js/getDates.js"></script>
 <script type="text/javascript" src="/js/calendar.js"></script>
