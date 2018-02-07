@@ -16,6 +16,10 @@ $("#augusti").click(function () {
     $("#calendar-div").load("calendar/augusti.html")
 })
 
+function GetCalendar(){
+    $("#calendar-div").load("calendar/maj.html")
+};
+
 getBookedWeeks()
 
 function getBookedWeeks() {
@@ -39,10 +43,16 @@ function getBookedWeeks() {
         w.splice(w.length-1, 1)
 
         w.map(p => {
-            var tag = "v" + p
-            console.log("test"+tag+"test")
-            var name = document.getElementsByName(tag)
-            name.style = "background-color:red"    
+            var tag = p;
+            console.log("test"+tag+"test");
+            var name = document.getElementById(tag)
+            if(name!=null){
+            name.style.backgroundColor = "rgb(248, 174, 174)";
+            console.log("tag är = "+tag)
+            
+                        
+            }
+            
         })
     });
 }

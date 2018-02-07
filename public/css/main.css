@@ -70,3 +70,6 @@ html {
   .day-disabled{
       color: lightgray;
   }
+  .testclass{
+      background-color: rgb(248, 174, 174);
+  }
