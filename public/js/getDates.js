@@ -10,7 +10,10 @@ function getBookedDates() {
             var childData = childSnapshot.val();
             console.log(childData)
             kunder.push(childData)
+            
         });
+        
+        kunder.reverse();
         var v = kunder.map((x, i) => {
             var rad = "<tr>"
             for (var j = 0; j < props.length; j++) {
