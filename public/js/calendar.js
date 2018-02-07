@@ -1,7 +1,6 @@
 
 $("#maj").click(function () {
     $("#calendar-div").load("calendar/maj.html")
-
 })
 
 $("#juni").click(function () {
@@ -23,7 +22,7 @@ function GetCalendar(){
 getBookedWeeks()
 
 function getBookedWeeks() {
-    var props = ["vecka"]
+        var props = ["vecka"]
     var kunder = []
     var users = firebase.database().ref("users");
     
@@ -55,4 +54,5 @@ function getBookedWeeks() {
             
         })
     });
+    
 }

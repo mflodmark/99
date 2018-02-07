@@ -1,24 +1,12 @@
 
-
-
 var v = document.getElementById("datum").value = new Date().toLocaleDateString()
 
-function send() {
-    var props = ["vecka", "belopp", "förnamn", "efternamn", "pnr", "adress", "postnr", "ort", "telefon", "mail", "datum"]
-    var inputs = Array.from(document.forms["boka"].getElementsByTagName("input"));
-    var obj = {}
-
-    inputs = inputs.map((x, i) => {
-        obj[props[i]] = x.value
+$("#book").submit(function () {
+    $.post("/form", $("#book").serialize(), function (response) {
+        console.log(response)
+        alert(respons)
     })
-
-    console.log(obj)
-    var v = firebase.database();
-    v.ref('users').push(obj)
-    document.getElementById("submit").style.visibility = 'hidden'
-    alert("Tack för din bokning.\n Vi återkommer inom ngn dag med bekräftelse\nHälsningar Kurt")
-    return false
-}
+})
 
 $(document).ready(function () {
     UsedDates();
@@ -48,23 +36,10 @@ function UsedDates() {
     var weeks = []
     var users = firebase.database().ref("users");
 
-
-    users.on('value', function (snapshot) {
-        snapshot.forEach(function (childSnapshot) {
-            var childData = childSnapshot.val();
-            kunder.push(childData)
-            console.log("kund")
-        });
-
-        kunder.map((x, i) => {
-            console.log("kundloop")
-            for (var j = 0; j < props.length; j++) {
-                weeks.push(x[props[j]])
-                console.log("kundlooppush")
-            }
-        })
-        AddUsedDates(weeks)       
-    });
+    $.get("/dates", function (response) {
+        console.log(response)
+        AddUsedDates(response)
+    })
 }
 
 

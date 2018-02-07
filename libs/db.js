@@ -10,6 +10,38 @@ var config = {
 };
 firebase.initializeApp(config);
 
+var fb = firebase.database();
+
+exports.createBooking = function(data, res) {
+    fb.ref('users').push(data)
+    res.send("Tack för din bokning.\nVi återkommer inom ngn dag med bekräftelse\n\nHälsningar Kurt")
+}
+
+exports.getBookedDates = function(res) {
+    var props = ["vecka"]
+    var kunder = []
+    var weeks = []
+    var users = firebase.database().ref("users");
+
+    users.on('value', function (snapshot) {
+        snapshot.forEach(function (childSnapshot) {
+            var childData = childSnapshot.val();
+            kunder.push(childData)
+            console.log("kund")
+        });
+
+        kunder.map((x, i) => {
+            console.log("kundloop")
+            for (var j = 0; j < props.length; j++) {
+                weeks.push(x[props[j]])
+                console.log("kundlooppush")
+            }
+        })
+        res.send(weeks)
+    });
+
+}
+
 /** @param {Express} app */
 exports.init = function init(app) {
     app.get("/someapi", function(req, res) {
