@@ -20,5 +20,11 @@ db.init(app);
 // The Node.js file system module allow you to work with the file system on your computer.
 var fs = require('fs');
 
+// app.get("/maj", function(req, res) {
+    
+// });
+
+
+
 app.listen(port)
 console.log("Denna webserver lyssnar på localhost port 8080")
