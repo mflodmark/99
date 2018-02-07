@@ -45,6 +45,6 @@ function CheckUserState() {
         console.log("Ej inloggad")
         $("#login-div").show();
         $("#logout-div").hide();      
-        pwd.innerText = "";
+        pwd.value='';
     }
 }
