@@ -19,6 +19,21 @@ app.get("/dates", function(req, res) {
     return false
 })
 
+app.get("/allBookings", function(req, res) {
+    db.GetAllBookings(res)
+    return false
+})
+
+// app.get("/userState", function(req, res) {
+//     db.checkUserState(req, res)
+//     return false
+// })
+
+// app.post("/admin", function(req, res) {
+//     db.login(req.body, res)
+//     return false
+// })
+
 db.init(app);
 
 // The Node.js file system module allow you to work with the file system on your computer.

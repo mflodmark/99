@@ -15,44 +15,30 @@ $("#augusti").click(function () {
     $("#calendar-div").load("calendar/augusti.html")
 })
 
-function GetCalendar(){
+function GetCalendar() {
     $("#calendar-div").load("calendar/maj.html")
 };
 
 getBookedWeeks()
 
 function getBookedWeeks() {
-        var props = ["vecka"]
+    var props = ["vecka"]
     var kunder = []
     var users = firebase.database().ref("users");
-    
-    users.on('value', function (snapshot) {
-        snapshot.forEach(function (childSnapshot) {
-            var childData = childSnapshot.val();
-            console.log(childData)
-            kunder.push(childData)
-        });
-        var w = []
-        var v = kunder.map((x, i) => {
-            for (var j = 0; j < props.length; j++) {
-                var sp = x[props[j]].split(" ")
-                sp.map(p => {w.push(p)})
-            }
-        })
-        w.splice(w.length-1, 1)
 
-        w.map(p => {
+    $.get("/dates", function (response) {
+        console.log(response)
+
+        response.splice(response.length - 1, 1)
+
+        response.map(p => {
             var tag = p;
-            console.log("test"+tag+"test");
+            console.log("test" + tag + "test");
             var name = document.getElementById(tag)
-            if(name!=null){
-            name.style.backgroundColor = "rgb(248, 174, 174)";
-            console.log("tag är = "+tag)
-            
-                        
+            if (name != null) {
+                name.style.backgroundColor = "rgb(248, 174, 174)";
+                console.log("tag är = " + tag)
             }
-            
         })
-    });
-    
+    })
 }
