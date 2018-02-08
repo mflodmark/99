@@ -4,7 +4,7 @@ var v = document.getElementById("datum").value = new Date().toLocaleDateString()
 $("#book").submit(function () {
     $.post("/form", $("#book").serialize(), function (response) {
         console.log(response)
-        alert(respons)
+        alert(response)
     })
 })
 
