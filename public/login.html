@@ -1,6 +1,6 @@
 <link href="css/login.css" rel="stylesheet">
 
-<div id="login-div" class="modal-content">
+<form id="login-div" class="modal-content" method="post" onsubmit="return false">
   <div class="imgcontainer">
     <img src="images/img_avatar2.png" class="avatar">
   </div>
@@ -15,10 +15,10 @@
       <b>Password</b>
     </label>
     <input id="password" type="password" placeholder="Ange Lösenord" name="psw" autocomplete="off" required>
-    <button id="btn">Login</button>
+    <button type="submit" id="login-btn">Login</button>
 
   </div>
-</div>
+</form>
 
 <div id="logout-div">
   <table class="table table-hover table-striped">
@@ -42,6 +42,4 @@
   <button id="logout-btn">Log out</button>
 </div>
 
-<script type="text/javascript" src="/js/db.js"></script>
 <script type="text/javascript" src="/js/login.js"></script>
-<script type="text/javascript" src="/js/getDbData.js"></script>

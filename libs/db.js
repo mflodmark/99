@@ -13,6 +13,20 @@ firebase.initializeApp(config);
 
 var fb = firebase.database();
 
+exports.logout = async function (res) {
+    await firebase.auth().signOut()
+    res.send(true)
+}
+
+exports.login = async function (data, res) {
+    const auth = firebase.auth();
+
+    const promise = await auth.signInWithEmailAndPassword(data.email, data.password)
+
+    if (promise) { res.send(true) } else {res.send(false)}
+
+}
+
 exports.createBooking = function (data, res) {
 	data.datum = dateutil.niceDate();
 

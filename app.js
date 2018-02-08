@@ -21,6 +21,14 @@ app.get("/allBookings", async function(req, res) {
     await db.sendAllBookings(res);
 })
 
+app.get("/logout", async function(req, res) {
+    await db.logout(res);
+})
+
+app.post("/login", async function(req, res) {
+    await db.login(req.body, res);
+})
+
 db.init(app);
 
 // The Node.js file system module allow you to work with the file system on your computer.
