@@ -1,22 +1,23 @@
 
 $("#maj").click(function () {
-    $("#calendar-div").load("calendar/maj.html")
+    $("#calendar-div").load("calendar/maj.html", getBookedWeeks)
 })
 
 $("#juni").click(function () {
-    $("#calendar-div").load("calendar/juni.html")
+    $("#calendar-div").load("calendar/juni.html", getBookedWeeks)
 })
 
 $("#juli").click(function () {
-    $("#calendar-div").load("calendar/juli.html")
+    $("#calendar-div").load("calendar/juli.html", getBookedWeeks)
 })
 
 $("#augusti").click(function () {
-    $("#calendar-div").load("calendar/augusti.html")
+    $("#calendar-div").load("calendar/augusti.html", getBookedWeeks)
 })
 
 function GetCalendar() {
-    $("#calendar-div").load("calendar/maj.html")
+    $("#calendar-div").load("calendar/maj.html", getBookedWeeks)
+
 };
 
 getBookedWeeks()
@@ -24,13 +25,9 @@ getBookedWeeks()
 function getBookedWeeks() {
     var props = ["vecka"]
     var kunder = []
-    var users = firebase.database().ref("users");
 
     $.get("/dates", function (response) {
-        
-
         response.splice(response.length - 1, 1)
-
         response.map(p => {
             var tag = p;
             

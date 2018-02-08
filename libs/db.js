@@ -44,8 +44,8 @@ exports.getBookedWeeks = async function () {
 
 	snapshot.forEach(function (childSnapshot) {
 		var kund = childSnapshot.val();
-		var veckor = kund["vecka"].split(" ");
-		weeks.concat(veckor);
+		var veckor = kund["vecka"].split(" ").filter(o => o);
+		weeks = weeks.concat(veckor);
 	});
 
 	return weeks;
