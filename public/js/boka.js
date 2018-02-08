@@ -3,27 +3,27 @@ var v = document.getElementById("datum").value = new Date().toLocaleDateString()
 
 $("#book").submit(function () {
     $.post("/form", $("#book").serialize(), function (response) {
-        console.log(response)
-        alert(response)
+        console.log(response);
+        alert(response);
     })
 })
 
 $(document).ready(function () {
     UsedDates();
 
-    var pickedDates = document.getElementById("picked-dates")
-    var price = document.getElementById("price")
+    var pickedDates = document.getElementById("picked-dates");
+    var price = document.getElementById("price");
 
     $("#dates").change(function () {
         pickedDates.value += $("#dates").val() + " ";
         var dt = $("#picked-dates").val();
-        var res = dt.split(" ")
+        var res = dt.split(" ");
         res.splice(res.length - 1, 1);
-        var prc = 0
+        var prc = 0;
 
         res.forEach(x => {
-            if (Number(x) >= 25 && Number(x) <= 32) { prc += 4500 }
-            else if (Number(x) < 25 || Number(x) > 32) { prc += 3500 }
+            if (Number(x) >= 25 && Number(x) <= 32) { prc += 4500; }
+            else if (Number(x) < 25 || Number(x) > 32) { prc += 3500; }
         })
 
         price.value = prc + " :-";
@@ -31,27 +31,27 @@ $(document).ready(function () {
 })
 
 function UsedDates() {
-    var props = ["vecka"]
-    var kunder = []
-    var weeks = []
+    var props = ["vecka"];
+    var kunder = [];
+    var weeks = [];
     var users = firebase.database().ref("users");
 
     $.get("/dates", function (response) {
-        console.log(response)
-        AddUsedDates(response)
+        console.log(response);
+        AddUsedDates(response);
     })
 }
 
 
 function AddUsedDates(weeks) {
-    var arr = []
+    var arr = [];
     for (let index = 20; index <= 40; index++) {
-        arr.push(index)
+        arr.push(index);
     }
 
-    console.log("arr created")
-    console.log(weeks.length + "weeks from kunder")
-    console.log(arr.length + "arr")
+    console.log("arr created");
+    console.log(weeks.length + "weeks from kunder");
+    console.log(arr.length + "arr");
 
     var w = []
 

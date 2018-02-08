@@ -19,12 +19,12 @@ exports.createBooking = function (data, res) {
 
 	fb.ref('users').push(data);
 	res.send("Tack för din bokning.\nVi återkommer inom ngn dag med bekräftelse\n\nHälsningar Kurt");
-}
+};
 
 exports.getBookedDates = async function (res) {
-	var props = ["vecka"]
-	var kunder = []
-	var weeks = []
+	var props = ["vecka"];
+	var kunder = [];
+	var weeks = [];
 	var users = firebase.database().ref("users");
 
 	var snapshot = await users.once('value');
@@ -43,7 +43,7 @@ exports.getBookedDates = async function (res) {
 	});
 
 	res.send(weeks);
-}
+};
 
 exports.GetAllBookings = async function (res) {
 	var kunder = [];
