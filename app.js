@@ -14,11 +14,11 @@ app.post("/form", async function(req, res) {
 })
 
 app.get("/dates", async function(req, res) {
-    await db.getBookedDates(res);
+    await db.sendBookedWeeks(res);
 })
 
 app.get("/allBookings", async function(req, res) {
-    await db.GetAllBookings(res);
+    await db.sendAllBookings(res);
 })
 
 db.init(app);

@@ -15,14 +15,13 @@ var fb = firebase.database();
 
 exports.createBooking = function (data, res) {
 	data.datum = dateutil.niceDate();
-	console.log(data);
 
 	fb.ref('users').push(data);
 	res.send("Tack för din bokning.\nVi återkommer inom ngn dag med bekräftelse\n\nHälsningar Kurt");
 };
 
-exports.getBookedDates = async function (res) {
-	var props = ["vecka"];
+/** @returns {Promise<string[]>} */
+exports.getBookedWeeks = async function () {
 	var kunder = [];
 	var weeks = [];
 	var users = firebase.database().ref("users");
@@ -30,22 +29,21 @@ exports.getBookedDates = async function (res) {
 	var snapshot = await users.once('value');
 
 	snapshot.forEach(function (childSnapshot) {
-		var childData = childSnapshot.val();
-		kunder.push(childData)
+		var kund = childSnapshot.val();
+		var veckor = kund["vecka"].split(" ");
+		weeks.concat(veckor);
 	});
 
-	kunder.map((x, i) => {
-		for (var j = 0; j < props.length; j++) {
-			// var trim = x[props[j]].trim()
-			var sp = x[props[j]].split(" ");
-			sp.map(p => { weeks.push(p) });
-		}
-	});
+	return weeks;
+}
 
-	res.send(weeks);
+/** @param {Response} res */
+exports.sendBookedWeeks = async function (res) {
+	res.send(await exports.getBookedWeeks());
 };
 
-exports.GetAllBookings = async function (res) {
+/** @returns {Promise<{}[]>} */
+exports.getAllBookings = async function () {
 	var kunder = [];
 	var users = firebase.database().ref("users");
 
@@ -53,11 +51,15 @@ exports.GetAllBookings = async function (res) {
 
 	snapshot.forEach(function (childSnapshot) {
 		var childData = childSnapshot.val();
-		// console.log(childData)
 		kunder.push(childData);
 	});
 
-	res.send(kunder);
+	return kunder;
+}
+
+/** @param {Response} res */
+exports.sendAllBookings = async function (res) {
+	res.send(await exports.getAllBookings());
 };
 
 /** @param {Express} app */
