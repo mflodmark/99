@@ -1,105 +1,104 @@
 <div class="row">
-    <div class="col-sm-4 card">
-        <div class="card-body">
-        <h2 class="card-title">Hyresvärd</h2>
-        <form>
-            <div class="row">
-                <label class="col-form-label col-sm-4">Namn:</label>
-                <input class="form-control-plaintext col-sm-8" readonly="" value="Sundre Sockenförening">
-            </div>
-            <div class="row">
-                <label class="col-form-label col-sm-4">Org.nr:</label>
-                <input class="form-control-plaintext col-sm-8" readonly="" value="123456">
-            </div>
-            <div class="row">
-                <label class="col-form-label col-sm-4">c/o:</label>
-                <input class="form-control-plaintext col-sm-8" readonly="" value="Kurt Andersson">
-            </div>
-            <div class="row">
-                <label class="col-form-label col-sm-4">Adress:</label>
-                <input class="form-control-plaintext col-sm-8" readonly="" value="Sundre, Juves 167">
-            </div>
-            <div class="row">
-                <label class="col-form-label col-sm-4">Postnr:</label>
-                <input class="form-control-plaintext col-sm-8" readonly="" value="623 30">
-            </div>
-            <div class="row">
-                <label class="col-form-label col-sm-4">Ort:</label>
-                <input class="form-control-plaintext col-sm-8" readonly="" value="Burgsvik">
-            </div>
-            <div class="row">
-                <label class="col-form-label col-sm-4">Telefon:</label>
-                <input class="form-control-plaintext col-sm-8" readonly="" value="070-7956777">
-            </div>
-            <div class="row">
-                <label class="col-form-label col-sm-4">Mail:</label>
-                <input class="form-control-plaintext col-sm-8" readonly="" value="sundreskola@gmail.com">
-            </div>
-            <div class="row">
-                <label class="col-form-label col-sm-4">Plusgiro:</label>
-                <input class="form-control-plaintext col-sm-8" readonly="" value="634 66 27-01">
-            </div>
-        </div>
-    </div>
-    <div class="col-sm-1"></div>
-    <div class="col-sm-7 text-left">
-        </form>
-        <h2>Bokning-Hyresgäst</h2>
-        <form name="boka" id="book">
-            <div class="form-group row">
-                <label class="col-form-label col-sm-3">Vecka/or</label>
-                <select id="dates" class="form-control col-sm-3" required="">
-                    <option disabled selected value="">Välj vecka</option>
-                </select>
-                <input id="picked-dates" class="form-control-plaintext col-sm-3 text-center" readonly="">
-            </div>
-            <div class="form-group row">
-                <label class="col-form-label col-sm-3">Att betala</label>
-                <input id="price" class="form-control-plaintext col-sm-6" value="0 :-" readonly="">
-            </div>
-            <div class="form-group row">
-                <label class="col-form-label col-sm-3">Förnamn</label>
-                <input class="form-control col-sm-6" required="" pattern="[A-Öa-ö-]{1,}">
-            </div>
-            <div class="form-group row">
-                <label class="col-form-label col-sm-3">Efternamn</label>
-                <input class="form-control col-sm-6" required="" pattern="[A-Öa-ö-]{1,}">
-            </div>
-            <div class="form-group row">
-                <label class="col-form-label col-sm-3">Personnummer</label>
-                <input class="form-control col-sm-6" required="" maxlength="11" placeholder="ÅÅMMDD-XXXX" pattern="[0-9-]{11,}">
-            </div>
-            <div class="form-group row">
-                <label class="col-form-label col-sm-3">Adress</label>
-                <input class="form-control col-sm-6" required="" 
-                pattern="^([a-zA-ZåäöñáíóéúàìòèùÅÄÖÑÁÍÓÉÚÀÌÒÈÙ]+\s)+[1-999]{1,3}[a-zA-ZåäöñáíóéúàìòèùÅÄÖÑÁÍÓÉÚÀÌÒÈÙ]?$">
-            </div>
-            <div class="form-group row">
-                <label class="col-form-label col-sm-3">Postnummer</label>
-                <input class="form-control col-sm-6" required="" pattern="[0-9]{5}">
-            </div>
-            <div class="form-group row">
-                <label class="col-form-label col-sm-3">Ort</label>
-                <input class="form-control col-sm-6" required="" pattern="[a-öA-Ö ]{3,}">
-            </div>
-            <div class="form-group row">
-                <label class="col-form-label col-sm-3">Telefon</label>
-                <input class="form-control col-sm-6" required="" pattern="[0-9-+]{8,15}$">
-            </div>
-            <div class="form-group row">
-                <label class="col-form-label col-sm-3">Mail</label>
-                <input class="form-control col-sm-6" type="email" required="" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
-            </div>
-            <div class="form-group row">
-                <label class="col-form-label col-sm-3">Bokningsdatum</label>
-                <input class="form-control-plaintext col-sm-6" id="datum" readonly="">
-            </div>
-            <div class="text-right">
-                <button id="submit" type="submit" class="btn btn-primary">Sänd</button>
-                <span>Alla fält måste fyllas i</span>
-            </div>
-        </form>
-    </div>
+	<div class="col-sm-4 card">
+		<div class="card-body">
+			<h2 class="card-title">Hyresvärd</h2>
+			<div>
+				<div class="row">
+					<label class="col-form-label col-sm-4">Namn:</label>
+					<span class="form-control-plaintext col-sm-8">Sundre Sockenförening</span>
+				</div>
+				<div class="row">
+					<label class="col-form-label col-sm-4">Org.nr:</label>
+					<span class="form-control-plaintext col-sm-8">123456</span>
+				</div>
+				<div class="row">
+					<label class="col-form-label col-sm-4">c/o:</label>
+					<span class="form-control-plaintext col-sm-8">Kurt Andersson</span>
+				</div>
+				<div class="row">
+					<label class="col-form-label col-sm-4">Adress:</label>
+					<span class="form-control-plaintext col-sm-8">Sundre, Juves 167</span>
+				</div>
+				<div class="row">
+					<label class="col-form-label col-sm-4">Postnr:</label>
+					<span class="form-control-plaintext col-sm-8">623 30</span>
+				</div>
+				<div class="row">
+					<label class="col-form-label col-sm-4">Ort:</label>
+					<span class="form-control-plaintext col-sm-8">Burgsvik</span>
+				</div>
+				<div class="row">
+					<label class="col-form-label col-sm-4">Telefon:</label>
+					<span class="form-control-plaintext col-sm-8">070-7956777</span>
+				</div>
+				<div class="row">
+					<label class="col-form-label col-sm-4">Mail:</label>
+					<span class="form-control-plaintext col-sm-8">sundreskola@gmail.com</span>
+				</div>
+				<div class="row">
+					<label class="col-form-label col-sm-4">Plusgiro:</label>
+					<span class="form-control-plaintext col-sm-8">634 66 27-01</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-sm-1"></div>
+	<div class="col-sm-7 text-left">
+		<h2>Bokning-Hyresgäst</h2>
+		<form name="boka" id="book">
+			<div class="form-group row">
+				<label class="col-form-label col-sm-3">Vecka/or</label>
+				<select id="dates" class="form-control col-sm-3" required>
+					<option disabled selected value="">Välj vecka</option>
+				</select>
+				<input name="vecka" id="picked-dates" class="form-control-plaintext col-sm-3 text-center" readonly>
+			</div>
+			<div class="form-group row">
+				<label class="col-form-label col-sm-3">Att betala</label>
+				<input name="belopp" id="price" class="form-control-plaintext col-sm-6" value="0 :-" readonly>
+			</div>
+			<div class="form-group row">
+				<label class="col-form-label col-sm-3">Förnamn</label>
+				<input name="förnamn" class="form-control col-sm-6" required pattern="[A-Öa-ö-]{1,}">
+			</div>
+			<div class="form-group row">
+				<label class="col-form-label col-sm-3">Efternamn</label>
+				<input name="efternamn" class="form-control col-sm-6" required pattern="[A-Öa-ö-]{1,}">
+			</div>
+			<div class="form-group row">
+				<label class="col-form-label col-sm-3">Personnummer</label>
+				<input name="pnr" class="form-control col-sm-6" required maxlength="11" placeholder="ÅÅMMDD-XXXX" pattern="[0-9-]{11,}">
+			</div>
+			<div class="form-group row">
+				<label class="col-form-label col-sm-3">Adress</label>
+				<input name="adress" class="form-control col-sm-6" required pattern="^([a-zA-ZåäöñáíóéúàìòèùÅÄÖÑÁÍÓÉÚÀÌÒÈÙ]+\s)+[1-999]{1,3}[a-zA-ZåäöñáíóéúàìòèùÅÄÖÑÁÍÓÉÚÀÌÒÈÙ]?$">
+			</div>
+			<div class="form-group row">
+				<label class="col-form-label col-sm-3">Postnummer</label>
+				<input name="postnr" class="form-control col-sm-6" required pattern="[0-9]{5}">
+			</div>
+			<div class="form-group row">
+				<label class="col-form-label col-sm-3">Ort</label>
+				<input name="ort" class="form-control col-sm-6" required pattern="[a-öA-Ö ]{3,}">
+			</div>
+			<div class="form-group row">
+				<label class="col-form-label col-sm-3">Telefon</label>
+				<input name="telefon" class="form-control col-sm-6" required pattern="[0-9-+]{8,15}$">
+			</div>
+			<div class="form-group row">
+				<label class="col-form-label col-sm-3">Mail</label>
+				<input name="mail" class="form-control col-sm-6" type="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+			</div>
+			<div class="form-group row">
+				<label class="col-form-label col-sm-3">Bokningsdatum</label>
+				<input class="form-control-plaintext col-sm-6" id="datum" readonly>
+			</div>
+			<div class="text-right">
+				<button id="submit" type="submit" class="btn btn-primary">Sänd</button>
+				<span>Alla fält måste fyllas i</span>
+			</div>
+		</form>
+	</div>
 </div>
 
 <br>
@@ -107,17 +106,17 @@
 <br>
 
 <section class="text-center">
-    <a href="http://www.sundresockenforening.se/">Till föreningssidan</a>
-    <img class="img-fluid" src="/images/hardufrågor.jpg" width="250">
-    <img class="img-fluid" src="/images/maila.jpg" width="300">
+	<a href="http://www.sundresockenforening.se/">Till föreningssidan</a>
+	<img class="img-fluid" src="/images/hardufrågor.jpg" width="250">
+	<img class="img-fluid" src="/images/maila.jpg" width="300">
 </section>
 
 <br>
 
 <section class="text-center">
-    När du skickat din bokning kommer du att få ett mail som bekräftar din bokning där du också kommer att få all info du behöver
-    för att betala bokningen, hur du tillträder(nyckel etc). Bekräftelsemailet kan ta ngn eller några dagar men ditt bokningsdatum
-    avgör turordningen
+	När du skickat din bokning kommer du att få ett mail som bekräftar din bokning där du också kommer att få all info du behöver
+	för att betala bokningen, hur du tillträder(nyckel etc). Bekräftelsemailet kan ta ngn eller några dagar men ditt bokningsdatum
+	avgör turordningen
 </section>
 
 <script type="text/javascript" src="/js/db.js"></script>

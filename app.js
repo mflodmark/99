@@ -1,27 +1,24 @@
 const express = require("express");
 const db = require("./libs/db");
 
-const app = express()
-const port = 8080
+const app = express();
+const port = 8080;
 
-app.use(express.static("public"))
+app.use(express.static("public"));
 
-var bodyParser = require("body-parser")
-app.use(bodyParser.urlencoded({ extended: false}))
+var bodyParser = require("body-parser");
+app.use(bodyParser.urlencoded({ extended: false}));
 
-app.post("/form", function(req, res) {
-    db.createBooking(req.body, res)
-    return false
+app.post("/form", async function(req, res) {
+    await db.createBooking(req.body, res);
 })
 
-app.get("/dates", function(req, res) {
-    db.getBookedDates(res)
-    return false
+app.get("/dates", async function(req, res) {
+    await db.getBookedDates(res);
 })
 
-app.get("/allBookings", function(req, res) {
-    db.GetAllBookings(res)
-    return false
+app.get("/allBookings", async function(req, res) {
+    await db.GetAllBookings(res);
 })
 
 db.init(app);
