@@ -47,7 +47,7 @@ exports.GetAllBookings = function (res) {
     users.on('value', function (snapshot) {
         snapshot.forEach(function (childSnapshot) {
             var childData = childSnapshot.val();
-            console.log(childData)
+            // console.log(childData)
             kunder.push(childData)
         });
 
