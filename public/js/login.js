@@ -27,25 +27,10 @@ function ButtonClick() {
         var errorMessage = error.message;
         // ...
     });
-    
-    // var login = {username: email.value, password: pwd.value}
-    // $.post("/admin", login, function () {
-    //     console.log("login")
-    //     // checkUserState()
-    // })
 }
 
-// $("#login-div").submit(function () {
-//     $.post("/admin", $("#login-div").serialize(), function (response) {
-//         console.log("login")        
-//     })
-// })
-
 function CheckUserState() {
-    console.log("userstate")
-
-    // var token = firebase.auth().currentUser.getToken()
-    
+    console.log("userstate")    
     // Check user login
     var user = firebase.auth().currentUser;
     if (user) {
@@ -61,19 +46,4 @@ function CheckUserState() {
         $("#logout-div").hide();
         pwd.value = '';
     }
-    // $.get("/userState", token, function (response) {
-    //     if (response) {
-    //         // User is signed in.
-    //         console.log("Inloggad")
-    //         $("#logout-div").show();
-    //         $("#login-div").hide();
-
-    //     } else {
-    //         // No user is signed in.
-    //         console.log("Ej inloggad")
-    //         $("#login-div").show();
-    //         $("#logout-div").hide();
-    //         pwd.value = '';
-    //     }
-    // })
 }

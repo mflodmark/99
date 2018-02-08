@@ -12,13 +12,4 @@ $("#btn").click(function () {
             document.getElementById("admin-data").innerHTML += rad
         })
     })
-
-    // users.on('value', function (snapshot) {
-    //     snapshot.forEach(function (childSnapshot) {
-    //         var childData = childSnapshot.val();
-    //         console.log(childData)
-    //         kunder.push(childData)
-    //     });
-
-    // });
 });
