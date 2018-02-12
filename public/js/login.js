@@ -13,8 +13,8 @@ $("#login-div").submit(function() {
     var obj = {email: email.value, password: pwd.value}
     $.post("/login", obj, function(response) {
         if(response) {
-            console.log("Det gick att logga in")
-            CheckUserState(true)
+            console.log("Det gick att logga in");
+            CheckUserState(response);
         }
     })
 })
@@ -22,35 +22,29 @@ $("#login-div").submit(function() {
 $("#logout-btn").click(function () {
     $.get("/logout", function(response) {
         if(response) {
-            console.log("Det gick att logga ut")
-            CheckUserState(false)
+            console.log("Det gick att logga ut");
+            CheckUserState(false);
         }
     })
 })
 
-function CheckUserState(user) {
-    console.log("userstate")    
+function CheckUserState(allBookings) {
     // Check user login
-    // var user = firebase.auth().currentUser;
-    if (user) {
+    if (allBookings) {
         // User is signed in.
-        console.log("Inloggad")
+        console.log("Inloggad");
         $("#logout-div").show();
         $("#login-div").hide();
-
-        var props = ["vecka", "belopp", "förnamn", "efternamn", "pnr", "adress", "postnr", "ort", "telefon", "mail", "datum"]
-        document.getElementById("admin-data").innerHTML = ""
-    
-        $.get("/allBookings", function (response) {
-            var v = response.map((x, i) => {
-                var rad = "<tr>"
-                for (var j = 0; j < props.length; j++) {
-                    rad += "<td>" + x[props[j]] + "</td>"
-                }
-                rad += "</tr>"
-                document.getElementById("admin-data").innerHTML += rad
-            })
-        })
+		
+		var props = ["vecka", "belopp", "förnamn", "efternamn", "pnr", "adress", "postnr", "ort", "telefon", "mail", "datum"];
+		    
+		var html = allBookings.map(booking =>
+			`<tr>
+				${props.map(name => `<td>${booking[name]}</td>`).join('\n')}
+			</tr>`
+		).join('\n');
+		
+		$("#admin-data").html(html);
     } else {
         // No user is signed in.
         console.log("Ej inloggad")

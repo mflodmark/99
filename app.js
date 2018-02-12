@@ -9,26 +9,6 @@ app.use(express.static("public"));
 var bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: false}));
 
-app.post("/form", async function(req, res) {
-    await db.createBooking(req.body, res);
-})
-
-app.get("/dates", async function(req, res) {
-    await db.sendBookedWeeks(res);
-})
-
-app.get("/allBookings", async function(req, res) {
-    await db.sendAllBookings(res);
-})
-
-app.get("/logout", async function(req, res) {
-    await db.logout(res);
-})
-
-app.post("/login", async function(req, res) {
-    await db.login(req.body, res);
-})
-
 db.init(app);
 
 // The Node.js file system module allow you to work with the file system on your computer.

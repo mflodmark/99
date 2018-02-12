@@ -9,25 +9,26 @@ var config = {
 	databaseURL: "https://sundre-37509.firebaseio.com",
 	storageBucket: "sundre-37509.appspot.com",
 };
+
 firebase.initializeApp(config);
 
 var fb = firebase.database();
 
-exports.logout = async function (res) {
-    await firebase.auth().signOut()
-    res.send(true)
+async function logout(res) {
+	await firebase.auth().signOut()
+	res.send(true);
 }
 
-exports.login = async function (data, res) {
-    const auth = firebase.auth();
+async function login(data, res) {
+	const auth = firebase.auth();
 
-    const promise = await auth.signInWithEmailAndPassword(data.email, data.password)
+	const promise = await auth.signInWithEmailAndPassword(data.email, data.password)
 
-    if (promise) { res.send(true) } else {res.send(false)}
-
+	return !!promise;
 }
 
-exports.createBooking = function (data, res) {
+/** @param {} data, @param {Response} res */
+function createBooking(data, res) {
 	data.datum = dateutil.niceDate();
 
 	fb.ref('users').push(data);
@@ -35,7 +36,7 @@ exports.createBooking = function (data, res) {
 };
 
 /** @returns {Promise<string[]>} */
-exports.getBookedWeeks = async function () {
+async function getBookedWeeks() {
 	var kunder = [];
 	var weeks = [];
 	var users = firebase.database().ref("users");
@@ -52,12 +53,12 @@ exports.getBookedWeeks = async function () {
 }
 
 /** @param {Response} res */
-exports.sendBookedWeeks = async function (res) {
-	res.send(await exports.getBookedWeeks());
+async function sendBookedWeeks(res) {
+	res.send(await getBookedWeeks());
 };
 
 /** @returns {Promise<{}[]>} */
-exports.getAllBookings = async function () {
+async function getAllBookings() {
 	var kunder = [];
 	var users = firebase.database().ref("users");
 
@@ -72,16 +73,26 @@ exports.getAllBookings = async function () {
 }
 
 /** @param {Response} res */
-exports.sendAllBookings = async function (res) {
-	res.send(await exports.getAllBookings());
+async function sendAllBookings(res) {
+	res.send(await getAllBookings());
 };
 
 /** @param {Express} app */
-exports.init = function init(app) {
-	app.get("/someapi", function (req, res) {
-		res.send({
-			foo: "bar",
-			moo: 1023
-		});
-	});
+exports.init = function (app) {
+	app.post("/form", async function(req, res) {
+		await createBooking(req.body, res);
+	})
+
+	app.get("/dates", async function(req, res) {
+		await sendBookedWeeks(res);
+	})
+
+	app.get("/logout", async function(req, res) {
+		await logout(res);
+	})
+
+	app.post("/login", async function(req, res) {
+		if (await login(req.body, res))
+			await sendAllBookings(res);
+	})
 }
