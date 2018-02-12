@@ -19,12 +19,14 @@ async function logout(res) {
 	res.send(true);
 }
 
-async function login(data, res) {
+async function login(data) {	
 	const auth = firebase.auth();
-
-	const promise = await auth.signInWithEmailAndPassword(data.email, data.password)
-
-	return !!promise;
+	try {
+		const promise = await auth.signInWithEmailAndPassword(data.email, data.password);
+		return !!promise;
+	} catch (e) {
+		return false;
+	}
 }
 
 /** @param {} data, @param {Response} res */
@@ -92,7 +94,9 @@ exports.init = function (app) {
 	})
 
 	app.post("/login", async function(req, res) {
-		if (await login(req.body, res))
+		if (await login(req.body))
 			await sendAllBookings(res);
+		else
+			res.send(false);
 	})
 }

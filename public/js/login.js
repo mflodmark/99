@@ -1,55 +1,52 @@
-var email = document.getElementById("email")
-var pwd = document.getElementById("password")
-var btn = document.getElementById("btn")
-var loginDiv = document.getElementById("login-div")
-var logoutDiv = document.getElementById("logout-div")
 
-$("#login-div").hide();
-$("#logout-div").hide();
-CheckUserState();
+var email = $("#email");
+var pwd = $("#password");
+var logoutBtn = $("#logout-btn");
+var loginDiv = $("#login-div");
+var logoutDiv = $("#logout-div");
 
-$("#login-div").submit(function() {
-    console.log("test log in")
-    var obj = {email: email.value, password: pwd.value}
-    $.post("/login", obj, function(response) {
-        if(response) {
-            console.log("Det gick att logga in");
-            CheckUserState(response);
-        }
-    })
-})
+loginDiv.show();
+logoutDiv.hide();
 
-$("#logout-btn").click(function () {
-    $.get("/logout", function(response) {
-        if(response) {
-            console.log("Det gick att logga ut");
-            CheckUserState(false);
-        }
-    })
-})
+loginDiv.submit(function () {
+	var data = { email: email.val(), password: pwd.val() }
+	$.post("/login", data, function (response) {
+		CheckUserState(response);
+	});
+});
+
+logoutBtn.on('click', function () {
+	CheckUserState(void(0));
+	$.get("/logout", function (response) {
+		//
+	});
+});
 
 function CheckUserState(allBookings) {
-    // Check user login
-    if (allBookings) {
-        // User is signed in.
-        console.log("Inloggad");
-        $("#logout-div").show();
-        $("#login-div").hide();
-		
+	console.log(allBookings);
+	// Check user login
+	if (allBookings) {
+		// User is signed in.
+		console.log("Inloggad");
+		logoutDiv.show();
+		loginDiv.hide();
+
 		var props = ["vecka", "belopp", "förnamn", "efternamn", "pnr", "adress", "postnr", "ort", "telefon", "mail", "datum"];
-		    
+
 		var html = allBookings.map(booking =>
 			`<tr>
 				${props.map(name => `<td>${booking[name]}</td>`).join('\n')}
 			</tr>`
 		).join('\n');
-		
+
 		$("#admin-data").html(html);
-    } else {
-        // No user is signed in.
-        console.log("Ej inloggad")
-        $("#login-div").show();
-        $("#logout-div").hide();
-        pwd.value = '';
-    }
+	} else {
+		// No user is signed in.
+		console.log("Ej inloggad")
+		loginDiv.show();
+		logoutDiv.hide();
+		pwd.val('');
+		if (allBookings === false)
+			$("#login-div .alert").hide().fadeIn();
+	}
 }

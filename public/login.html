@@ -1,45 +1,57 @@
 <link href="css/login.css" rel="stylesheet">
 
-<form id="login-div" class="modal-content" method="post" onsubmit="return false">
-  <div class="imgcontainer">
-    <img src="images/img_avatar2.png" class="avatar">
-  </div>
+<form id="login-div" class="card" method="post" onsubmit="return false">
+	<div class="imgcontainer">
+		<img src="images/img_avatar2.png" class="avatar">
+	</div>
 
-  <div class="container">
-    <label>
-      <b>Username</b>
-    </label>
-    <input id="email" type="text" placeholder="Ange Användarnman" name="uname" autocomplete="off" required>
+	<div class="login-container">
+		<div class="alert alert-danger alert-dismissible fade show" role="alert" style="display:none;">
+			<strong>Fel vid inloggning!</strong><br>
+			Felaktigt e-post eller lösenord. Var god försök igen.
+			<button type="button" class="close" data-hide="alert" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+		</div>
 
-    <label>
-      <b>Password</b>
-    </label>
-    <input id="password" type="password" placeholder="Ange Lösenord" name="psw" autocomplete="off" required>
-    <button type="submit" id="login-btn">Login</button>
+		<div class="form-group">
+			<label for="email">
+				<b>E-post</b>
+			</label>
+			<input id="email" class="form-control" type="email" placeholder="Ange E-post" name="uname" autocomplete="off" required>
+		</div>
 
-  </div>
+		<div class="form-group">
+			<label for="password">
+				<b>Lösenord</b>
+			</label>
+			<input id="password" class="form-control" type="password" placeholder="Ange Lösenord" name="psw" autocomplete="off" required>
+		</div>
+		<input type="submit" value="Logga in" class="btn btn-success w-100" />
+
+	</div>
 </form>
 
 <div id="logout-div">
-  <table class="table table-hover table-striped">
-    <thead>
-      <tr>
-        <th>Vecka</th>
-        <th>Belopp</th>
-        <th>Förnamn</th>
-        <th>Efternamn</th>
-        <th>Personnr</th>
-        <th>Adress</th>
-        <th>Postnr</th>
-        <th>Ort</th>
-        <th>Telefon</th>
-        <th>Mail</th>
-        <th>Datum</th>
-      </tr>
-    </thead>
-    <tbody id="admin-data"></tbody>
-  </table>
-  <button id="logout-btn">Log out</button>
+	<table class="table table-hover table-striped table-responsive">
+		<thead>
+			<tr>
+				<th>Vecka</th>
+				<th>Belopp</th>
+				<th>Förnamn</th>
+				<th>Efternamn</th>
+				<th>Personnr</th>
+				<th>Adress</th>
+				<th>Postnr</th>
+				<th>Ort</th>
+				<th>Telefon</th>
+				<th>Mail</th>
+				<th>Datum</th>
+			</tr>
+		</thead>
+		<tbody id="admin-data"></tbody>
+	</table>
+	<button id="logout-btn" class="btn btn-danger">Log out</button>
 </div>
 
 <script type="text/javascript" src="/js/login.js"></script>
