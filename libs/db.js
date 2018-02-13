@@ -38,7 +38,7 @@ function createBooking(data, res) {
 };
 
 /** @returns {Promise<string[]>} */
-async function getBookedWeeks() {
+async function getBookedWeeks(res) {
 	var kunder = [];
 	var weeks = [];
 	var users = firebase.database().ref("users");

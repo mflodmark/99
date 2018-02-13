@@ -34,7 +34,6 @@ function UsedDates() {
     var props = ["vecka"];
     var kunder = [];
     var weeks = [];
-    var users = firebase.database().ref("users");
 
     $.get("/dates", function (response) {
         console.log(response);
