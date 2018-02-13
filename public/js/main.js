@@ -68,8 +68,8 @@ $(function () {
 function applyImgModalEvent() {
 	$('#loaded-container .modal-img-link').on('click', function () {
 		modal.css('display', 'block');
-		modalImg.attr('src', this.src);
-		captionText.text(this.alt);
+		modalImg.attr('src', $(this).attr('src'));
+		captionText.text($(this).attr('alt'));
 	});
 }
 
